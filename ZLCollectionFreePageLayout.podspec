@@ -17,14 +17,14 @@ Pod::Spec.new do |spec|
 
   spec.name         = "ZLCollectionFreePageLayout"
   spec.version      = "0.0.3"
-  spec.summary      = "Free page size(width/height) for page collection layout. You can set custom page size(width/height) especially for the size which is less than the width/height of collection view"
+  spec.summary      = "You can set custom page size(width/height) especially for the size which is less than the width/height of collection view"
   # This description is used to generate tags and improve search results.
   #   * Think: What does it do? Why did you write it? What is the focus?
   #   * Try to keep it short, snappy and to the point.
   #   * Write the description between the DESC delimiters below.
   #   * Finally, don't worry about the indent, CocoaPods strips it!
   spec.description  = <<-DESC
-                      Free page size(width/height) for page collection layout. You can set custom page size(width/height) especially for the size which is less than the width/height of collection view
+                      You can set custom page size(width/height) especially for the size which is less than the width/height of collection view
                    DESC
 
   spec.homepage     = "https://github.com/TsinHzl/ZLCollectionFreePageLayout"

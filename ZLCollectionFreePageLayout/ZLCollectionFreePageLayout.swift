@@ -50,7 +50,6 @@ class ZLCollectionFreePageLayout: UICollectionViewFlowLayout {
     
     private var prevContentSize: CGSize = .zero
     private var prevCalculatedContentSize: CGSize = .zero
-    private lazy var storedPageOffsets = [Int: CGPoint]()
     
     
     override func targetContentOffset(forProposedContentOffset proposedContentOffset: CGPoint, withScrollingVelocity velocity: CGPoint) -> CGPoint {
@@ -78,7 +77,6 @@ class ZLCollectionFreePageLayout: UICollectionViewFlowLayout {
         let rawPageValue = contentOffsetXOrY / pWOrH
         var nextPage = (velocityXOrY > 0) ? ceil(rawPageValue) : floor(rawPageValue)
         if (nextPage + 1.0) * pWOrH > collectionViewContentWOrH { nextPage -= 1.0 }
-        if let offset = storedPageOffsets[Int(nextPage)] { return offset }
         
         let currentPage = (velocityXOrY > 0) ? floor(rawPageValue) : ceil(rawPageValue)
         let pannedLessThanAPage = abs(1 + currentPage - rawPageValue) > 0.5
@@ -91,7 +89,6 @@ class ZLCollectionFreePageLayout: UICollectionViewFlowLayout {
             newProposedContentOffset.x = round(rawPageValue) * pWOrH
         }
         
-        storedPageOffsets[Int(nextPage)] = newProposedContentOffset
         return newProposedContentOffset
     }
 

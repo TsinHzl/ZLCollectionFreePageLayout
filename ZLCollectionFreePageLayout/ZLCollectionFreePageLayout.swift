@@ -8,14 +8,14 @@
 import UIKit
 
 
-public class ZLCollectionFreePageLayout: UICollectionViewFlowLayout {
+open class ZLCollectionFreePageLayout: UICollectionViewFlowLayout {
     
     /// your custom page width or page height
     /// if `scrollDirection == .horizontal`, `pageWOrH` is page width, otherwise it is page height
     /// if `pageWOrH == 0`, it will be set to the width or height of collection view
-    public var pageWOrH: CGFloat = 0
+    open var pageWOrH: CGFloat = 0
     
-    public override var collectionViewContentSize: CGSize {
+    open override var collectionViewContentSize: CGSize {
         get {
             
             if prevContentSize == super.collectionViewContentSize { return prevCalculatedContentSize }
@@ -52,7 +52,7 @@ public class ZLCollectionFreePageLayout: UICollectionViewFlowLayout {
     private var prevCalculatedContentSize: CGSize = .zero
     
     
-    public override func targetContentOffset(forProposedContentOffset proposedContentOffset: CGPoint, withScrollingVelocity velocity: CGPoint) -> CGPoint {
+    open override func targetContentOffset(forProposedContentOffset proposedContentOffset: CGPoint, withScrollingVelocity velocity: CGPoint) -> CGPoint {
         guard let collectionView = collectionView else {
             return super.targetContentOffset(forProposedContentOffset: proposedContentOffset, withScrollingVelocity: velocity)
         }

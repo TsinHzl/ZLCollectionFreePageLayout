@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "ZLCollectionFreePageLayout"
-  spec.version      = "0.0.6"
+  spec.version      = "0.0.7"
   spec.summary      = "You can set custom page size(width/height) especially for the size which is less than the width/height of collection view"
   # This description is used to generate tags and improve search results.
   #   * Think: What does it do? Why did you write it? What is the focus?

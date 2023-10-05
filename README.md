@@ -15,7 +15,7 @@
 ##### cocoapods
 
 - **pod 'ZLCollectionFreePageLayout'**
-- or specify a version:  **pod 'ZLCollectionFreePageLayout', '~> 0.0.5'**
+- or specify a version:  **pod 'ZLCollectionFreePageLayout', '~> 0.0.6'**
 
 ##### download framwork
 

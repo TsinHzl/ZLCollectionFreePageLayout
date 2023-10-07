@@ -36,10 +36,13 @@
     private lazy var collectionView: UICollectionView = {
       // instance ZLCollectionLeftLayout
       let defaultLayout = ZLCollectionFreePageLayout()
+      
+      // custome page width or height
+      defaultLayout.pageWOrH = 200.0
       defaultLayout.minimumLineSpacing = 10.0
       defaultLayout.minimumInteritemSpacing = 10.0
       defaultLayout.scrollDirection = .vertical
-      defaultLayout.sectionInset = UIEdgeInsets(top: 10.0, left: 10.0, bottom: 20.0, right: 10.0)
+      defaultLayout.sectionInset = UIEdgeInsets(top: 10.0, left: 10.0, bottom: 10.0, right: 10.0)
       // set collectionViewLayout to a instance of ZLCollectionFreePageLayout
       let collectionView = UICollectionView(frame: .zero, collectionViewLayout: defaultLayout)
       collectionView.showsVerticalScrollIndicator = false

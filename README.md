@@ -51,4 +51,9 @@
 
 - and you do not need to set the property **collectionView.isPagingEnabled = true**
 
+
+#### Screen record
+![9f0a668e-b5d8-422d-b3f2-2c3d95bcd232](https://github.com/TsinHzl/ZLCollectionFreePageLayout/assets/9133239/d797c804-9cde-4ff9-b8f9-ca2de9dc5940)
+
+
   

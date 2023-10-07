@@ -37,7 +37,7 @@
       // instance ZLCollectionLeftLayout
       let defaultLayout = ZLCollectionFreePageLayout()
       
-      // custome page width or height
+      // custom page width or height
       defaultLayout.pageWOrH = 200.0
       defaultLayout.minimumLineSpacing = 10.0
       defaultLayout.minimumInteritemSpacing = 10.0

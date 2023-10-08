@@ -1,9 +1,5 @@
 # ZLCollectionFreePageLayout
-**You can set custom page size(width/height) especially for the size which is less than the width/height of collection view**
-
-
-
-**[中文版](https://github.com/TsinHzl/ZLCollectionFreePageLayout/blob/master/README-zh.md)**
+**可以自定义collection view的page size(width/height)分页效果， 尤其是size(width/height)小于collection view的size(width/height)的时候最合适**
 
 
 
@@ -16,8 +12,8 @@
 
 #### Description
 
--  there is a situation where your page size is less than the size of collection view, and then you can use **ZLCollectionFreePageLayout** to make the paging enabled for the collection view
--  you do not need to set the property **collectionView.isPagingEnabled = true**, it will make paging enabled automatically for the collection view
+-  当出现page size小于collection view的size的时候，可以使用**ZLCollectionFreePageLayout**一下子就实现分页效果
+-  并且不需要设置属性**collectionView.isPagingEnabled = true**，只要设置了layout为**ZLCollectionFreePageLayout**,就可以自动实现这种效果
 
 
 
@@ -26,16 +22,16 @@
 ##### cocoapods
 
 - **pod 'ZLCollectionFreePageLayout'**
-- or specify a version:  **pod 'ZLCollectionFreePageLayout', '~> 0.0.7'**
+- 或指定一个版本号:  **pod 'ZLCollectionFreePageLayout', '~> 0.0.7'**
 
-##### download framwork
+##### 下载 framwork
 
-- download the repo.
-- and add **ZLCollectionFreePageLayout**  library to your project
+- 下载代码文件
+- 然后 **ZLCollectionFreePageLayout** 到你的项目里即可
 
 #### Usage
 
-- import ZLCollectionLeftAlignLayout
+- 导入 ZLCollectionLeftAlignLayout
 
   - ```swift
     import ZLCollectionFreePageLayout
@@ -45,25 +41,25 @@
 
   - ```swift
     private lazy var collectionView: UICollectionView = {
-      // instance ZLCollectionLeftLayout
+      // 实例化一个ZLCollectionLeftLayout对象
       let defaultLayout = ZLCollectionFreePageLayout()
       
-      // custom page width or height
+      // 自定义page width或者page height
       defaultLayout.pageWOrH = 200.0
       defaultLayout.minimumLineSpacing = 10.0
       defaultLayout.minimumInteritemSpacing = 10.0
       defaultLayout.scrollDirection = .vertical
       defaultLayout.sectionInset = UIEdgeInsets(top: 10.0, left: 10.0, bottom: 10.0, right: 10.0)
-      // set collectionViewLayout to a instance of ZLCollectionFreePageLayout
+      // 设置collection view的layout为ZLCollectionFreePageLayout
       let collectionView = UICollectionView(frame: .zero, collectionViewLayout: defaultLayout)
       collectionView.showsVerticalScrollIndicator = false
       return collectionView
     }()
     ```
 
-- and then it will automatically make paging enabled for the collection view
+- 然后就会自动实现分页效果
 
-- and you do not need to set the property **collectionView.isPagingEnabled = true**
+- 并且不需要设置属性**collectionView.isPagingEnabled = true**
 
 
 #### ScreenRecord

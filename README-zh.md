@@ -3,12 +3,14 @@
 
 
 
+- [Screen record](#ScreenRecord)
 - [Description](#Description)
 - [Installation](#Installation)
 - [Usage](#Usage)
-- [Screen record](#ScreenRecord)
 
 
+#### ScreenRecord
+![9f0a668e-b5d8-422d-b3f2-2c3d95bcd232](https://github.com/TsinHzl/ZLCollectionFreePageLayout/assets/9133239/d797c804-9cde-4ff9-b8f9-ca2de9dc5940)
 
 #### Description
 
@@ -60,10 +62,6 @@
 - 然后就会自动实现分页效果
 
 - 并且不需要设置属性**collectionView.isPagingEnabled = true**
-
-
-#### ScreenRecord
-![9f0a668e-b5d8-422d-b3f2-2c3d95bcd232](https://github.com/TsinHzl/ZLCollectionFreePageLayout/assets/9133239/d797c804-9cde-4ff9-b8f9-ca2de9dc5940)
 
 
 

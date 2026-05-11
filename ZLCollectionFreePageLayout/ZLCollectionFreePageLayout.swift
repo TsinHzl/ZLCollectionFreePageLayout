@@ -13,7 +13,12 @@ open class ZLCollectionFreePageLayout: UICollectionViewFlowLayout {
     /// your custom page width or page height
     /// if `scrollDirection == .horizontal`, `pageWOrH` is page width, otherwise it is page height
     /// if `pageWOrH == 0`, it will be set to the width or height of collection view
-    open var pageWOrH: CGFloat = 0
+    open var pageWOrH: CGFloat = 0 {
+        didSet {
+            prevContentSize = .zero
+            invalidateLayout()
+        }
+    }
     
     open override var collectionViewContentSize: CGSize {
         get {
@@ -34,14 +39,14 @@ open class ZLCollectionFreePageLayout: UICollectionViewFlowLayout {
             } else {
                 contentWOrH = contentSize.height
                 collectionWOrH = collectionView?.frame.size.height ?? contentSize.height
-                pWOrH = (pageWOrH == 0 ? (collectionView?.frame.height ?? 0) : pageWOrH) + minimumInteritemSpacing
+                pWOrH = (pageWOrH == 0 ? (collectionView?.frame.height ?? 0) : pageWOrH) + minimumLineSpacing
             }
             
             let wh = contentWOrH - pWOrH + collectionWOrH
             if scrollDirection == .horizontal {
                 prevCalculatedContentSize = CGSize(width: wh + minimumLineSpacing, height: contentSize.height)
             } else {
-                prevCalculatedContentSize = CGSize(width: contentSize.width, height: wh + minimumInteritemSpacing)
+                prevCalculatedContentSize = CGSize(width: contentSize.width, height: wh + minimumLineSpacing)
             }
             
             return prevCalculatedContentSize
@@ -51,6 +56,10 @@ open class ZLCollectionFreePageLayout: UICollectionViewFlowLayout {
     private var prevContentSize: CGSize = .zero
     private var prevCalculatedContentSize: CGSize = .zero
     
+    open override func prepare() {
+        super.prepare()
+        collectionView?.decelerationRate = .fast
+    }
     
     open override func targetContentOffset(forProposedContentOffset proposedContentOffset: CGPoint, withScrollingVelocity velocity: CGPoint) -> CGPoint {
         guard let collectionView = collectionView else {
@@ -68,7 +77,7 @@ open class ZLCollectionFreePageLayout: UICollectionViewFlowLayout {
             collectionViewContentWOrH = collectionViewContentSize.width
             velocityXOrY = velocity.x
         } else {
-            pWOrH = (pageWOrH == 0 ? collectionView.frame.height : pageWOrH) + minimumInteritemSpacing
+            pWOrH = (pageWOrH == 0 ? collectionView.frame.height : pageWOrH) + minimumLineSpacing
             contentOffsetXOrY = collectionView.contentOffset.y
             collectionViewContentWOrH = collectionViewContentSize.height
             velocityXOrY = velocity.y
@@ -87,7 +96,11 @@ open class ZLCollectionFreePageLayout: UICollectionViewFlowLayout {
             nextPage = round(originalPage)
         }
         
-        newProposedContentOffset.x = nextPage * pWOrH
+        if scrollDirection == .horizontal {
+            newProposedContentOffset.x = nextPage * pWOrH
+        } else {
+            newProposedContentOffset.y = nextPage * pWOrH
+        }
         
         return newProposedContentOffset
     }
